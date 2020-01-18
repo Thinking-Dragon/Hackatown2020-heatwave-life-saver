@@ -21,6 +21,11 @@ import router from "./router";
 import Argon from "./plugins/argon-kit";
 import './registerServiceWorker'
 
+import VueLayers from 'vuelayers';
+import 'vuelayers/lib/style.css';
+
+Vue.use(VueLayers);
+
 Vue.config.productionTip = false;
 Vue.use(Argon);
 new Vue({
