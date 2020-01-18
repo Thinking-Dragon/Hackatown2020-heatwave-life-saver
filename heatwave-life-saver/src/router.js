@@ -8,6 +8,8 @@ import Login from "./views/Login.vue";
 import Register from "./views/Register.vue";
 import Profile from "./views/Profile.vue";
 
+import MapComponent from "./views/Map.vue";
+
 Vue.use(Router);
 
 export default new Router({
@@ -19,6 +21,15 @@ export default new Router({
       components: {
         header: AppHeader,
         default: Components,
+        footer: AppFooter
+      }
+    },
+    {
+      path: "/map",
+      name: "map",
+      components: {
+        header: AppHeader,
+        default: MapComponent,
         footer: AppFooter
       }
     },
