@@ -5,15 +5,17 @@
                 <div class="col-lg-12">
                     <!-- Basic elements -->
                     <h2 class="mb-5">
-                        <span>Basic Elements</span>
+                        <span style="color:#fb6340;"> Heatwave </span>
+                      <span>  <h6>Ce qu'il vous faut pour survivre</h6> </span>
                     </h2>
                     <!-- Buttons -->
-                    <h3 class="h4 text-success font-weight-bold mb-4">Buttons</h3>
+                    <h3 style="color:#11cdef;">Buttons</h3>
                     <!-- Button styles -->
                     <div>
-                        <base-button type="primary">Button</base-button>
-                        <base-button class="btn-3" type="primary" icon="ni ni-bag-17">Button</base-button>
-                        <base-button class="btn-2" type="primary" icon="ni ni-bag-17"></base-button>
+                        <base-button class="btn-3" type="primary" size="lg" icon="ni ni-bell-55">Alerte</base-button>
+                        <base-button class="btn-3" type="primary" size="lg" icon="fa fa-tint">Go-Fontaine</base-button>
+                        <base-button class="btn-3" type="primary" size="lg" icon="fa-snowflake-o">Go-Cool</base-button>
+                        
 
                         <!-- Button wizes -->
                         <div class="mb-3 mt-5">
