@@ -5,8 +5,8 @@
             <div class="row align-items-center justify-content-md-between">
                 <div class="col-md-6">
                     <div class="copyright">
-                        &copy; {{year}}
-                        <a href="#" target="_blank" rel="noopener">Binary Tacos</a>
+                        Hackatown <br>
+                        Binary Taco &copy; {{year}} Copyleft
                     </div>
                 </div>
             </div>

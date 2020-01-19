@@ -18,20 +18,24 @@
 
             <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
                 <a slot="title" href="/home" class="nav-link" data-toggle="dropdown" role="button">
-                        <i class="ni ni-ui-04 d-lg-none"></i>
-                        <span class="nav-link-inner--text">Home</span>
-                    </a>
+                        <i class="fa fa-home" aria-hidden="true"></i>
+                        <span class="nav-link-inner--text">Accueil</span>
+                </a>
                 <a slot="title" href="#/map" class="nav-link" data-toggle="dropdown" role="button">
-                        <i class="ni ni-collection d-lg-none"></i>
-                        <span class="nav-link-inner--text">Maps</span>
-                    </a>
+                        <i class="fa fa-map" aria-hidden="true"></i>
+                        <span class="nav-link-inner--text">Guide</span>
+                </a>
+                 <a slot="title" href="#/alter" class="nav-link" data-toggle="dropdown" role="button">
+                        <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                        <span class="nav-link-inner--text">Alertes</span>
+                </a>
             </ul>
             <ul class="navbar-nav align-items-lg-center ml-lg-auto">
                 <li class="nav-item">
                     <a class="nav-link nav-link-icon" href="https://www.facebook.com/creativetim" target="_blank" rel="noopener"
                        data-toggle="tooltip" title="Like us on Facebook">
                         <i class="fa fa-facebook-square"></i>
-                        <span class="nav-link-inner--text d-lg-none">Facebook</span>
+                        <span class="nav-link-inner--text d-lg-none">Alertes</span>
                     </a>
                 </li>
                 <li class="nav-item">
@@ -59,6 +63,9 @@
                 </li>
             </ul>
         </base-nav>
+
+
+
     </header>
 </template>
 <script>
