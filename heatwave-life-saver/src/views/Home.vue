@@ -18,7 +18,7 @@
                                 <div class="btn-wrapper">
                                     
                                     <base-button tag="a"
-                                                 href="/Map"
+                                                 href="#/Map"
                                                  class="mb-3 mb-sm-0"
                                                  type="white"
                                                  icon="fa fa-map-o">
@@ -65,7 +65,7 @@
                                         <badge type="success" rounded>Climatiseur</badge>
                                         <badge type="success" rounded>Protection</badge>
                                     </div>
-                                    <base-button tag="a" href="#" type="success" class="mt-4">
+                                    <base-button tag="a" href="#/Map" type="success" class="mt-4">
                                         Top-Départ
                                     </base-button>
                                 </card>
@@ -81,7 +81,7 @@
                                         <badge type="warning" rounded>Alertes</badge>
                                         <badge type="warning" rounded>Clic</badge>
                                     </div>
-                                    <base-button tag="a" href="#" type="warning" class="mt-4">
+                                    <base-button tag="a" href="#/Alertes" type="warning" class="mt-4">
                                         Top-Départ
                                     </base-button>
                                 </card>
