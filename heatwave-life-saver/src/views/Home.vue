@@ -14,7 +14,7 @@
                                 <h1 class="display-3  text-white">Le Heatwave Guide
                                     <span>Contrer les vagues de chaleurs en sauvant la planète</span>
                                 </h1>
-                                <p class="lead  text-white">La solution vous permet de combattre la chaleur de l'été en trouvant rapidement un abris climatisé ou des fontaines pour éviter l'achat des bouteilles en plastique</p>
+                                <p class="lead  text-white">Notre solution vous permet de combattre la chaleur de l'été en trouvant rapidement un abris climatisé ou des fontaines pour éviter l'achat des bouteilles en plastique</p>
                                 <div class="btn-wrapper">
                                     
                                     <base-button tag="a"
