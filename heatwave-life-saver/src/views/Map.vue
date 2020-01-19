@@ -27,9 +27,17 @@
                         <vl-feature>
                             <vl-geom-point :coordinates="fountain.coordinates"></vl-geom-point>
                             <vl-style-box>
-                                <vl-style-icon src="http://simpleicon.com/wp-content/uploads/fountain.png" :scale="0.05" :anchor="[0.5, 1]"></vl-style-icon>
+                                <vl-style-icon src="https://images.vexels.com/media/users/3/145358/isolated/preview/caae118ed1bd555d7a47dcadf5af0bf8-water-drop-falling-illustration-by-vexels.png" :scale="0.05" :anchor="[0.5, 1]"></vl-style-icon>
                             </vl-style-box>
                         </vl-feature>
+
+                        <vl-overlay :position="fountain.coordinates">
+                            <template>
+                                <div class="overlay-content">
+                                    {{ fountain.ID }}
+                                </div>
+                            </template>
+                        </vl-overlay>
 
                         <vl-overlay :position="fountain.coordinates" v-if="fountain.isSelected">
                             <template>
@@ -47,6 +55,17 @@
                     </vl-layer-tile>
                     </vl-map>
                 </card>
+                
+                <div v-for="fountain in fountainsToShow.slice(0, 15)" v-bind:key="fountain.id">
+                    <card shadow>
+                        <p class="title">
+                            <img src="https://images.vexels.com/media/users/3/145358/isolated/preview/caae118ed1bd555d7a47dcadf5af0bf8-water-drop-falling-illustration-by-vexels.png" width="32px">
+                            #{{ fountain.ID }}
+                        </p>
+                        <p class="description">Nom du parc : {{ fountain.Nom_parc_lieu }}</p>
+                        <base-button class="btn-3 mr--0" type="primary" size="lg" icon="fa fa-tint">Directions</base-button>
+                    </card>
+                </div>
             </div>
         </section>
     </div>
@@ -81,7 +100,8 @@ export default {
                         fountainsToShow.push(fountain);
                 });
             }
-            return fountainsToShow;
+            return fountainsToShow.sort((a, b) => Math.sqrt(Math.pow(a.Longitude - this.center[0], 2) + Math.pow(a.Latitude - this.center[1], 2))
+                                                 -Math.sqrt(Math.pow(b.Longitude - this.center[0], 2) + Math.pow(b.Latitude - this.center[1], 2)));
         }
     },
     mounted() {
@@ -108,7 +128,13 @@ export default {
                  });
 
                  this.fountains = fountains;
-        })
+        });
+        axios.get("@/cooled-places.xml")
+             .then(response => {
+                 parseString(response.data, function(err, result) {
+                     console.log(result);
+                 });
+        });
     }
 };
 </script>
