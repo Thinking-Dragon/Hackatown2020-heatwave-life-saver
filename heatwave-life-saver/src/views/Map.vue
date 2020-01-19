@@ -65,7 +65,11 @@ export default {
     },
     methods: {
         onMapClick(event) {
-            console.log("Clicked on map");
+            let coordinates = {
+                longitude: event.offsetX - 500,
+                latitude: event.offsetY - 200
+            };
+            console.log(coordinates);
         }
     },
     computed: {
