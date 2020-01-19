@@ -18,7 +18,7 @@
                                 <div class="btn-wrapper">
                                     
                                     <base-button tag="a"
-                                                 href=""
+                                                 href="/Map"
                                                  class="mb-3 mb-sm-0"
                                                  type="white"
                                                  icon="fa fa-map-o">
@@ -49,7 +49,7 @@
                                         <badge type="primary" rounded>Eau</badge>
                                         <badge type="primary" rounded>Recherche</badge>
                                     </div>
-                                    <base-button tag="a" href="#" type="primary" class="mt-4">
+                                    <base-button tag="a" href="#/Map" type="primary" class="mt-4">
                                         Top-Départ
                                     </base-button>
                                 </card>
