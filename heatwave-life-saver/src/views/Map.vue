@@ -63,7 +63,7 @@
                                 <img src="https://images.vexels.com/media/users/3/145358/isolated/preview/caae118ed1bd555d7a47dcadf5af0bf8-water-drop-falling-illustration-by-vexels.png" width="32px">
                                 #{{ fountain.ID }}
                             </p>
-                            <base-button class="btn-3 mr--0 col-md-2 col-sm-4" type="primary" size="lg" icon="fa fa-map">Directions</base-button>
+                            <base-button class="btn-3 mr--0 col-md-2 col-sm-4" tag="a" :href="'https://www.google.com/maps/dir/Current+Location/' + fountain.Latitude + ', ' + fountain.Longitude" type="primary" size="lg" icon="fa fa-map">Directions</base-button>
                         </div>
                         <div>
                             <p v-if="fountain.Nom_parc_lieu" class="description"><icon name="fa fa-leaf"></icon> Parc : {{ fountain.Nom_parc_lieu }}</p>
