@@ -24,6 +24,11 @@ import './registerServiceWorker'
 import VueLayers from 'vuelayers';
 import 'vuelayers/lib/style.css';
 
+import axios from 'axios';
+import VueAxios from 'vue-axios';
+
+Vue.use(VueAxios, axios);
+
 Vue.use(VueLayers);
 
 Vue.config.productionTip = false;
