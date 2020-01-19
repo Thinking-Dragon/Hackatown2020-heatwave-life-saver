@@ -58,12 +58,19 @@
                 
                 <div v-for="fountain in fountainsToShow.slice(0, 15)" v-bind:key="fountain.id">
                     <card shadow>
-                        <p class="title">
-                            <img src="https://images.vexels.com/media/users/3/145358/isolated/preview/caae118ed1bd555d7a47dcadf5af0bf8-water-drop-falling-illustration-by-vexels.png" width="32px">
-                            #{{ fountain.ID }}
-                        </p>
-                        <p class="description">Nom du parc : {{ fountain.Nom_parc_lieu }}</p>
-                        <base-button class="btn-3 mr--0" type="primary" size="lg" icon="fa fa-tint">Directions</base-button>
+                        <div class="row">
+                            <p class="h5 col-md-10 col-sm-8">
+                                <img src="https://images.vexels.com/media/users/3/145358/isolated/preview/caae118ed1bd555d7a47dcadf5af0bf8-water-drop-falling-illustration-by-vexels.png" width="32px">
+                                #{{ fountain.ID }}
+                            </p>
+                            <base-button class="btn-3 mr--0 col-md-2 col-sm-4" type="primary" size="lg" icon="fa fa-map">Directions</base-button>
+                        </div>
+                        <div>
+                            <p v-if="fountain.Nom_parc_lieu" class="description"><icon name="fa fa-leaf"></icon> Parc : {{ fountain.Nom_parc_lieu }}</p>
+                            <p v-if="fountain.Arrondissement" class="description"><icon name="fa fa-building"></icon> Arrondissement : {{ fountain.Arrondissement }}</p>
+                            <p v-if="fountain.Intersection" class="description"><icon name="fa fa-road"></icon> Intersection : {{ fountain.Intersection }}</p>
+                            <p v-if="fountain.Remarque" class="description text-warning"><icon name="fa fa-info-circle"></icon> {{ fountain.Remarque }}</p>
+                        </div>
                     </card>
                 </div>
             </div>
@@ -79,7 +86,7 @@ export default {
             center: [-73.71368412394081, 45.56278194861761],
             rotation: 0,
             fountains: null,
-            displayDistance: 0.01
+            displayDistance: 0.03
         }
     },
     methods: {
@@ -96,7 +103,7 @@ export default {
             let fountainsToShow = [];
             if(this.fountains != null) {
                 this.fountains.forEach(fountain => {
-                    if(Math.sqrt(Math.pow(fountain.Longitude - this.center[0], 2) + Math.pow(fountain.Latitude - this.center[1], 2)) <= 1 - (this.zoom) * 0.01)
+                    if(Math.sqrt(Math.pow(fountain.Longitude - this.center[0], 2) + Math.pow(fountain.Latitude - this.center[1], 2)) <= this.displayDistance)
                         fountainsToShow.push(fountain);
                 });
             }
