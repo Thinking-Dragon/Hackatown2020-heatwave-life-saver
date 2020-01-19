@@ -1,7 +1,7 @@
 ## Inspiration
 We looked through the open data portal of the City of Montréal (http://donnees.ville.montreal.qc.ca/) for data related to issues linked with climate change and sustainability.
 ## What it does
-It shows you where you can find resources pertinent to a heatwave situation (i.e. water fountains and conditioned air) on a map. It can also display a compilation of the zones of city historically affected by heatwaves.
+It shows you where you can find resources pertinent to a heatwave situation (i.e. water fountains and conditioned air) on a map. It can also display a compilation of the zones of the city historically affected by heatwaves.
 ## How we built it
 We made a web app. using Vue.js. We made AJAX calls to endpoints provided by the City of Montréal using axios and integrated these data with a map component from VueLayers which uses OpenLayers (an opensource map library). For the UI, we used a template called Argon (https://www.creative-tim.com/product/vue-argon-design-system).
 ## Challenges we ran into
