@@ -10,6 +10,7 @@ import Profile from "./views/Profile.vue";
 
 import Home from "./views/Home.vue";
 import MapComponent from "./views/Map.vue";
+import Alertes from "./views/Alertes.vue"
 
 Vue.use(Router);
 
@@ -31,6 +32,15 @@ export default new Router({
       components: {
         header: AppHeader,
         default: MapComponent,
+        footer: AppFooter
+      }
+    },
+    {
+      path: "/alertes",
+      name: "alertes",
+      components: {
+        header: AppHeader,
+        default: Alertes,
         footer: AppFooter
       }
     },

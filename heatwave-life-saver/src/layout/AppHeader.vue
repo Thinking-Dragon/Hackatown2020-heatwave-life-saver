@@ -25,7 +25,7 @@
                         <i class="fa fa-map" aria-hidden="true"></i>
                         <span class="nav-link-inner--text">Guide</span>
                 </a>
-                 <a slot="title" href="#/alter" class="nav-link" data-toggle="dropdown" role="button">
+                 <a slot="title" href="#/alertes" class="nav-link" data-toggle="dropdown" role="button">
                         <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
                         <span class="nav-link-inner--text">Alertes</span>
                 </a>
