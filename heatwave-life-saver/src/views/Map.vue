@@ -50,18 +50,32 @@
                         </vl-overlay>
                     </div>
 
+                    <div v-if="showHeatwaveZones">
+                        <vl-feature v-for="(heatwaveZone, index) in heatwaveZones" v-bind:key="index" :properties="{prop: 'value', prop2: 'value'}">
+                            <vl-geom-polygon class="text-warning" :coordinates="heatwaveZone.geometry.coordinates[0]"></vl-geom-polygon>
+                        </vl-feature>
+                    </div>
+
                     <vl-layer-tile id="osm">
                         <vl-source-osm></vl-source-osm>
                     </vl-layer-tile>
                     </vl-map>
+
+                    <div class="col-lg-3 col-sm-6 mt-4 mt-md-0">
+                    
+                        <div class="mb-3">
+                            <small class="text-uppercase font-weight-bold">Montrer les vagues de chaleur</small>
+                        </div>
+                        <base-switch v-model="showHeatwaveZones"></base-switch>
+                    </div>
                 </card>
-                
+
                 <div v-for="fountain in fountainsToShow.slice(0, 15)" v-bind:key="fountain.id">
                     <card shadow>
                         <div class="row">
                             <p class="h5 col-md-10 col-sm-8">
                                 <img src="https://images.vexels.com/media/users/3/145358/isolated/preview/caae118ed1bd555d7a47dcadf5af0bf8-water-drop-falling-illustration-by-vexels.png" width="32px">
-                                #{{ fountain.ID }}
+                                #{{ fountain.ID }} - Fontaine
                             </p>
                             <base-button class="btn-3 mr--0 col-md-2 col-sm-4" tag="a" :href="'https://www.google.com/maps/dir/Current+Location/' + fountain.Latitude + ', ' + fountain.Longitude" type="primary" size="lg" icon="fa fa-map">Directions</base-button>
                         </div>
@@ -86,7 +100,9 @@ export default {
             center: [-73.71368412394081, 45.56278194861761],
             rotation: 0,
             fountains: null,
-            displayDistance: 0.03
+            heatwaveZones: null,
+            displayDistance: 0.03,
+            showHeatwaveZones: false
         }
     },
     methods: {
@@ -109,6 +125,15 @@ export default {
             }
             return fountainsToShow.sort((a, b) => Math.sqrt(Math.pow(a.Longitude - this.center[0], 2) + Math.pow(a.Latitude - this.center[1], 2))
                                                  -Math.sqrt(Math.pow(b.Longitude - this.center[0], 2) + Math.pow(b.Latitude - this.center[1], 2)));
+        },
+        heatwaveZonesToShow() {
+            let heatwaveZonesToShow = [];
+            if(this.heatwaveZones != null) {
+                this.heatwaveZones.forEach(heatwaveZone => {
+                    if(Math.sqrt(Math.pow(heatwaveZone.geometry.coordinates[0][0][0] - this.center[0], 2) + Math.pow(heatwaveZone.geometry.coordinates[0][0][1] - this.center[1], 2)) <= 100)
+                        heatwaveZonesToShow.push(heatwaveZone);
+                });
+            }
         }
     },
     mounted() {
@@ -124,7 +149,7 @@ export default {
                      let columns = line.split(",");
                      let fountain = {};
                      for(let i = 0; i < header.length; ++i)
-                        fountain[header[i].replace('\r', '').replace(' ', '')] = columns[i] != null ? columns[i].replace("\r", '').replace(' ', '') : "";
+                        fountain[header[i].replace('\r', '').replace(' ', '')] = columns[i] != null ? columns[i].replace("\r", '').trim() : "";
                     fountain.coordinates = [
                         parseFloat(fountain.Longitude),
                         parseFloat(fountain.Latitude)
@@ -141,6 +166,11 @@ export default {
                  parseString(response.data, function(err, result) {
                      console.log(result);
                  });
+        });
+        axios.get("http://donnees.ville.montreal.qc.ca/dataset/3603f75a-1963-4130-9fc5-ab3e7272211a/resource/522f81dd-8429-4548-906b-fba5ecbd020c/download/vulnerabilitevagueschaleur2016.geojson")
+             .then(response => {
+                 let features = response.data.features;
+                 this.heatwaveZones = features;
         });
     }
 };
